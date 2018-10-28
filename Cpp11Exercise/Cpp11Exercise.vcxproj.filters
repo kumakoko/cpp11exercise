@@ -26,5 +26,11 @@
     <ClInclude Include="initializer_list.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="for_range.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="function_and_bind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

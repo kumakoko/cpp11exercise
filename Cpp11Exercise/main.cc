@@ -16,11 +16,14 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 **************************************************************************************************************************/
 #include "type_derivation.h"
 #include "initializer_list.h"
+#include "for_range.h"
 
 int main() {
 	TestTypeDerivation();
 	std::cout << "\n ============================== \n";
 	TestInitializerList();
+	std::cout << "\n ============================== \n";
+	TestForRange();
 	char c;
 	std::cin >> c;
 	return 0;

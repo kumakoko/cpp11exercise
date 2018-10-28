@@ -145,6 +145,8 @@
     <ClCompile Include="main.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="for_range.h" />
+    <ClInclude Include="function_and_bind.h" />
     <ClInclude Include="initializer_list.h" />
     <ClInclude Include="type_derivation.h" />
   </ItemGroup>

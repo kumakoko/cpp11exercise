@@ -32,6 +32,8 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 
 #include <string>
 #include <iostream>
+#include <list>
+#include <initializer_list>
 
 class FooA {
 private:
@@ -60,11 +62,35 @@ private:
 	FooB(const FooB& rhs);
 };
 
+// 自定义容器可以使用std::initializer_list容器来初始化容器的元素
+template<typename T>
+class MyList {
+private:
+	std::list<T> v;
+public:
+	MyList(std::initializer_list<T> init_list) {
+		for (auto it = init_list.begin(); it != init_list.end(); ++it) {
+			v.emplace_back(*it);
+		}
+	}
+
+	void Print() {
+		for (auto it = v.begin(); it != v.end(); ++it) {
+			std::cout << *it << " ";
+		}
+
+		std::cout << std::endl;
+	}
+};
+
 void TestInitializerList() {
 	std::cout << "TestInitializerList function \n";
 	FooA fa = { 1,2.3,4.5f }; // 使用初始化列表，各参数的顺序和构造函数的参数声明顺序相同
 	FooB fb = { fa,"I am FooB" };
 	fb.Print();
+
+	MyList<int> ls = { 234,4325,5760,2345,84,9120 };
+	ls.Print();
 }
 
 
