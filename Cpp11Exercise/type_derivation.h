@@ -1,4 +1,4 @@
-/**************************************************************************************************************************
+ï»¿/**************************************************************************************************************************
 Copyright(C) 2014-2018 www.xionggf.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
@@ -21,9 +21,9 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
  * \author www.xionggf.com
  * Contact: sun_of_lover@sina.com
  *
- * \brief C++11ÖĞµÄÒ»Ğ©ÀàĞÍÍÆµ¼Óï·¨
+ * \brief C++11ä¸­çš„ä¸€äº›ç±»å‹æ¨å¯¼è¯­æ³•
  *
- * TODO: C++11ÖĞµÄÒ»Ğ©ÀàĞÍÍÆµ¼Óï·¨
+ * TODO: C++11ä¸­çš„ä¸€äº›ç±»å‹æ¨å¯¼è¯­æ³•
  *
  * \note
 */
@@ -35,13 +35,13 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 #include <typeinfo>
 #include <complex>
 
-// ÀûÓÃ¶Ô±í´ïÊ½(*(T1*)0) + (*(T2*)0)µÄÍÆµ¼£¬µÃ³öº¯ÊıµÄ·µ»ØÖµÀàĞÍ
+// åˆ©ç”¨å¯¹è¡¨è¾¾å¼(*(T1*)0) + (*(T2*)0)çš„æ¨å¯¼ï¼Œå¾—å‡ºå‡½æ•°çš„è¿”å›å€¼ç±»å‹
 template<typename T1, typename T2>
 decltype((*(T1*)0) + (*(T2*)0)) add(T1 param1, T2 param2) {
 	return param1 + param2;
 }
 
-// C++ 11ĞÂÓï·¨Ö§³Ö£¬º¯ÊıÇ©ÃûÇ°Ê¹ÓÃauto¹Ø¼ü×Ö£¬º¯ÊıÇ©ÃûºóÓÃ ->decltype(¾ßÌå±í´ïÊ½)µÄ·½Ê½ÇóµÃÀàĞÍ
+// C++ 11æ–°è¯­æ³•æ”¯æŒï¼Œå‡½æ•°ç­¾åå‰ä½¿ç”¨autoå…³é”®å­—ï¼Œå‡½æ•°ç­¾ååç”¨ ->decltype(å…·ä½“è¡¨è¾¾å¼)çš„æ–¹å¼æ±‚å¾—ç±»å‹
 template<typename T1, typename T2>
 auto multiply(T1 param1, T2 param2) -> decltype(param1*param2) {
 	return param1 * param2;

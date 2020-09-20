@@ -1,4 +1,4 @@
-/**************************************************************************************************************************
+Ôªø/**************************************************************************************************************************
 Copyright(C) 2014-2018 www.xionggf.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
@@ -23,7 +23,7 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
  *
  * \brief
  *
- * TODO: –¬µƒfor—≠ª∑¥¶¿Ì∑Ω Ω
+ * TODO: Êñ∞ÁöÑforÂæ™ÁéØÂ§ÑÁêÜÊñπÂºè
  *
  * \note
 */
@@ -37,16 +37,16 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 void TestForRange()
 {
 	std::list<double> ls = { 1.23,4.56,7.89,234532.54,8965.1223 };
-	std::cout << " π”√¥´Õ≥µƒbegin-end∑Ω Ω±È¿˙list\n";
+	std::cout << "‰ΩøÁî®‰º†ÁªüÁöÑbegin-endÊñπÂºèÈÅçÂéÜlist\n";
 	for (auto iter = ls.begin(); iter != ls.end(); ++iter) {
 		std::cout << *iter << " ";
 	}
 
 	std::cout << "\n\n";
 	std::vector<std::string> sv = { "apple","pear","grape","peach" };
-	std::cout << " π”√ª˘”⁄∑∂Œßµƒfor—≠ª∑±È¿˙vector<std::string> sv = {apple,pear,grape,peach}\n";
-	std::cout << "∑Ω Ω «£∫ for (auto data : sv)\n";
-	std::cout << "◊¢“‚’‚¿Ôµƒdata «µ¸¥˙∆˜À˘÷∏œÚµƒƒ⁄»›£¨∂¯≤ª «µ¸¥˙∆˜±æ…Ì\n";
+	std::cout << "‰ΩøÁî®Âü∫‰∫éËåÉÂõ¥ÁöÑforÂæ™ÁéØÈÅçÂéÜvector<std::string> sv = {apple,pear,grape,peach}\n";
+	std::cout << "ÊñπÂºèÊòØÔºö for (auto data : sv)\n";
+	std::cout << "Ê≥®ÊÑèËøôÈáåÁöÑdataÊòØËø≠‰ª£Âô®ÊâÄÊåáÂêëÁöÑÂÜÖÂÆπÔºåËÄå‰∏çÊòØËø≠‰ª£Âô®Êú¨Ë∫´\n";
 
 	for (auto const& data : sv)
 	{

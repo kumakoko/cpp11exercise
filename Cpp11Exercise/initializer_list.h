@@ -1,4 +1,4 @@
-/**************************************************************************************************************************
+ï»¿/**************************************************************************************************************************
 Copyright(C) 2014-2018 www.xionggf.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
@@ -23,7 +23,7 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
  *
  * \brief
  *
- * TODO: ³õÊ¼»¯ÁĞ±íµÄÏà¹ØÊ¾Àı
+ * TODO: åˆå§‹åŒ–åˆ—è¡¨çš„ç›¸å…³ç¤ºä¾‹
  *
  * \note
 */
@@ -62,7 +62,7 @@ private:
 	FooB(const FooB& rhs);
 };
 
-// ×Ô¶¨ÒåÈİÆ÷¿ÉÒÔÊ¹ÓÃstd::initializer_listÈİÆ÷À´³õÊ¼»¯ÈİÆ÷µÄÔªËØ
+// è‡ªå®šä¹‰å®¹å™¨å¯ä»¥ä½¿ç”¨std::initializer_listå®¹å™¨æ¥åˆå§‹åŒ–å®¹å™¨çš„å…ƒç´ 
 template<typename T>
 class MyList {
 private:
@@ -85,7 +85,7 @@ public:
 
 void TestInitializerList() {
 	std::cout << "TestInitializerList function \n";
-	FooA fa = { 1,2.3,4.5f }; // Ê¹ÓÃ³õÊ¼»¯ÁĞ±í£¬¸÷²ÎÊıµÄË³ĞòºÍ¹¹Ôìº¯ÊıµÄ²ÎÊıÉùÃ÷Ë³ĞòÏàÍ¬
+	FooA fa = { 1,2.3,4.5f }; // ä½¿ç”¨åˆå§‹åŒ–åˆ—è¡¨ï¼Œå„å‚æ•°çš„é¡ºåºå’Œæ„é€ å‡½æ•°çš„å‚æ•°å£°æ˜é¡ºåºç›¸åŒ
 	FooB fb = { fa,"I am FooB" };
 	fb.Print();
 

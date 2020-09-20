@@ -1,4 +1,4 @@
-/**************************************************************************************************************************
+ï»¿/**************************************************************************************************************************
 Copyright(C) 2014-2017 www.xionggf.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
@@ -23,278 +23,278 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 class DemoClassA
 {
 public:
-	DemoClassA() :num_(0), name_(nullptr)
-	{
-		std::printf("DemoClassA::DemoClassA()\n");
-	}
+    DemoClassA() :num_(0), name_(nullptr)
+    {
+        std::printf("DemoClassA::DemoClassA()\n");
+    }
 
-	~DemoClassA()
-	{
-		if (name_)
-		{
-			std::printf("DemoClassA::~DemoClassA(%d,%s)\n", num_, name_);
-			delete[] name_;
-			name_ = nullptr;
-		}
-		else
-		{
-			std::printf("DemoClassA::~DemoClassA()\n");
-		}
-	}
+    ~DemoClassA()
+    {
+        if (name_)
+        {
+            std::printf("DemoClassA::~DemoClassA(%d,%s)\n", num_, name_);
+            delete[] name_;
+            name_ = nullptr;
+        }
+        else
+        {
+            std::printf("DemoClassA::~DemoClassA()\n");
+        }
+    }
 
-	DemoClassA(int num, const char* name)
-	{
-		num_ = num;
-		auto len = std::strlen(name) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, name);
-		std::printf("DemoClassA::DemoClassA(%d,%s)\n", num_, name_);
-	}
+    DemoClassA(int num, const char* name)
+    {
+        num_ = num;
+        auto len = std::strlen(name) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, name);
+        std::printf("DemoClassA::DemoClassA(%d,%s)\n", num_, name_);
+    }
 
-	DemoClassA(const DemoClassA& rhs)
-	{
-		num_ = rhs.num_;
-		auto len = std::strlen(rhs.name_) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, rhs.name_);
-		std::printf("DemoClassA::DemoClassA(const DemoClassA& rhs)\n");
-	}
+    DemoClassA(const DemoClassA& rhs)
+    {
+        num_ = rhs.num_;
+        auto len = std::strlen(rhs.name_) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, rhs.name_);
+        std::printf("DemoClassA::DemoClassA(const DemoClassA& rhs)\n");
+    }
 
-	DemoClassA(DemoClassA&& rhs)
-	{
-		num_ = rhs.num_;
-		name_ = rhs.name_;
-		rhs.num_ = 0;
-		rhs.name_ = nullptr;
-		std::printf("DemoClassA::DemoClassA(DemoClassA&& rhs)\n");
-	}
+    DemoClassA(DemoClassA&& rhs)
+    {
+        num_ = rhs.num_;
+        name_ = rhs.name_;
+        rhs.num_ = 0;
+        rhs.name_ = nullptr;
+        std::printf("DemoClassA::DemoClassA(DemoClassA&& rhs)\n");
+    }
 
-	DemoClassA& operator = (const DemoClassA& rhs)
-	{
-		if (name_)
-		{
-			delete[] name_;
-			name_ = nullptr;
-		}
+    DemoClassA& operator = (const DemoClassA& rhs)
+    {
+        if (name_)
+        {
+            delete[] name_;
+            name_ = nullptr;
+        }
 
-		num_ = rhs.num_;
-		auto len = std::strlen(rhs.name_) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, rhs.name_);
-		std::printf("DemoClassA::operator = (const DemoClassA& rhs)\n");
-		return *this;
-	}
+        num_ = rhs.num_;
+        auto len = std::strlen(rhs.name_) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, rhs.name_);
+        std::printf("DemoClassA::operator = (const DemoClassA& rhs)\n");
+        return *this;
+    }
 
-	DemoClassA& operator = (DemoClassA&& rhs)
-	{
-		if (name_)
-		{
-			delete[] name_;
-			name_ = nullptr;
-		}
+    DemoClassA& operator = (DemoClassA&& rhs)
+    {
+        if (name_)
+        {
+            delete[] name_;
+            name_ = nullptr;
+        }
 
-		num_ = rhs.num_;
-		name_ = rhs.name_;
-		rhs.num_ = 0;
-		rhs.name_ = nullptr;
-		std::printf("DemoClassA::operator = (DemoClassA&& rhs)\n");
-		return *this;
-	}
+        num_ = rhs.num_;
+        name_ = rhs.name_;
+        rhs.num_ = 0;
+        rhs.name_ = nullptr;
+        std::printf("DemoClassA::operator = (DemoClassA&& rhs)\n");
+        return *this;
+    }
 
-	void PrintInfo()
-	{
-		if (name_)
-			std::printf("DemoClassA: I am %s.My number is %d\n", name_, num_);
-		else
-			std::printf("DemoClassA: I am a dummy\n");
-	}
+    void PrintInfo()
+    {
+        if (name_)
+            std::printf("DemoClassA: I am %s.My number is %d\n", name_, num_);
+        else
+            std::printf("DemoClassA: I am a dummy\n");
+    }
 
-	void ChangeNumber(int new_num)
-	{
-		num_ = new_num;
-	}
+    void ChangeNumber(int new_num)
+    {
+        num_ = new_num;
+    }
 
 private:
-	int num_ = 0;
-	char* name_ = nullptr;
+    int num_ = 0;
+    char* name_ = nullptr;
 };
 
 class DemoClassB
 {
 public:
-	DemoClassB() :num_(0), name_(nullptr)
-	{
-		std::printf("DemoClassB::DemoClassB()\n");
-	}
+    DemoClassB() :num_(0), name_(nullptr)
+    {
+        std::printf("DemoClassB::DemoClassB()\n");
+    }
 
-	~DemoClassB()
-	{
-		if (name_)
-		{
-			std::printf("DemoClassB::~DemoClassB(%d,%s)\n", num_, name_);
-			delete[] name_;
-			name_ = nullptr;
-		}
-		else
-		{
-			std::printf("DemoClassB::~DemoClassB()\n");
-		}
-	}
+    ~DemoClassB()
+    {
+        if (name_)
+        {
+            std::printf("DemoClassB::~DemoClassB(%d,%s)\n", num_, name_);
+            delete[] name_;
+            name_ = nullptr;
+        }
+        else
+        {
+            std::printf("DemoClassB::~DemoClassB()\n");
+        }
+    }
 
-	DemoClassB(int num, const char* name)
-	{
-		num_ = num;
-		auto len = std::strlen(name) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, name);
-		std::printf("DemoClassB::DemoClassB(%d,%s)\n", num_, name_);
-	}
+    DemoClassB(int num, const char* name)
+    {
+        num_ = num;
+        auto len = std::strlen(name) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, name);
+        std::printf("DemoClassB::DemoClassB(%d,%s)\n", num_, name_);
+    }
 
-	DemoClassB(const DemoClassB& rhs)
-	{
-		num_ = rhs.num_;
-		auto len = std::strlen(rhs.name_) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, rhs.name_);
-		std::printf("DemoClassB::DemoClassB(const DemoClassB& rhs %d,%s)\n", num_, name_);
-	}
+    DemoClassB(const DemoClassB& rhs)
+    {
+        num_ = rhs.num_;
+        auto len = std::strlen(rhs.name_) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, rhs.name_);
+        std::printf("DemoClassB::DemoClassB(const DemoClassB& rhs %d,%s)\n", num_, name_);
+    }
 
-	DemoClassB& operator = (const DemoClassB& rhs)
-	{
-		if (name_)
-		{
-			delete[] name_;
-			name_ = nullptr;
-		}
+    DemoClassB& operator = (const DemoClassB& rhs)
+    {
+        if (name_)
+        {
+            delete[] name_;
+            name_ = nullptr;
+        }
 
-		num_ = rhs.num_;
-		auto len = std::strlen(rhs.name_) + 1;
-		name_ = new char[len];
-		memset(name_, 0, len);
-		std::strcpy(name_, rhs.name_);
-		std::printf("DemoClassB::operator = (const DemoClassB& rhs)\n");
-		return *this;
-	}
+        num_ = rhs.num_;
+        auto len = std::strlen(rhs.name_) + 1;
+        name_ = new char[len];
+        memset(name_, 0, len);
+        std::strcpy(name_, rhs.name_);
+        std::printf("DemoClassB::operator = (const DemoClassB& rhs)\n");
+        return *this;
+    }
 
-	void PrintInfo()
-	{
-		if (name_)
-			std::printf("DemoClassB: I am %s.My number is %d\n", name_, num_);
-		else
-			std::printf("DemoClassB: I am a dummy\n");
-	}
+    void PrintInfo()
+    {
+        if (name_)
+            std::printf("DemoClassB: I am %s.My number is %d\n", name_, num_);
+        else
+            std::printf("DemoClassB: I am a dummy\n");
+    }
 
-	void ChangeNumber(int new_num)
-	{
-		num_ = new_num;
-	}
+    void ChangeNumber(int new_num)
+    {
+        num_ = new_num;
+    }
 
 private:
-	int		num_;
-	char*	name_;
+    int     num_;
+    char*   name_;
 };
 
 
 DemoClassA MakeDemoClassAInstance1(int num, const char* name)
 {
-	return DemoClassA(num, name);
+    return DemoClassA(num, name);
 }
 
 DemoClassA MakeDemoClassAInstance2(int num, const char* name)
 {
-	DemoClassA a(num, name);
-	return a;
+    DemoClassA a(num, name);
+    return a;
 }
 
 DemoClassB MakeDemoClassBInstance1(int num, const char* name)
 {
-	// ÒòÎªÕâÀïÃ»ÓĞ±ğµÄ²Ù×÷£¬Ö»ÊÇÒ»¸ö¼òµ¥µÄreturn£¬ËùÒÔ¾ÍËã²»¿ªÓÅ»¯
-	// Õâ¸öMakeDemoClassBInstance1º¯ÊıÊµÖÊÉÏÊÇµÈÍ¬ÓÚ²»´æÔÚµÄ£¬
-	return DemoClassB(num, name);
+    // å› ä¸ºè¿™é‡Œæ²¡æœ‰åˆ«çš„æ“ä½œï¼Œåªæ˜¯ä¸€ä¸ªç®€å•çš„returnï¼Œæ‰€ä»¥å°±ç®—ä¸å¼€ä¼˜åŒ–
+    // è¿™ä¸ªMakeDemoClassBInstance1å‡½æ•°å®è´¨ä¸Šæ˜¯ç­‰åŒäºä¸å­˜åœ¨çš„ï¼Œ
+    return DemoClassB(num, name);
 }
 
 DemoClassB MakeDemoClassBInstance2(int num, const char* name)
 {
-	// ÒòÎªDemoClassBÃ»ÓĞÒÆ¶¯¹¹Ôìº¯Êı£¬ËùÒÔ·µ»Øb¶ÔÏóËù¶ÔÓ¦µÄÁÙÊ±
-	// ¶ÔÏóÊ±£¬»áµ÷ÓÃDemoClassBµÄ¿½±´¹¹Ôìº¯ÊıÉú³ÉÕâ¸öÁÙÊ±¶ÔÏó
-	DemoClassB b(num, name);
-	return b;
+    // å› ä¸ºDemoClassBæ²¡æœ‰ç§»åŠ¨æ„é€ å‡½æ•°ï¼Œæ‰€ä»¥è¿”å›bå¯¹è±¡æ‰€å¯¹åº”çš„ä¸´æ—¶
+    // å¯¹è±¡æ—¶ï¼Œä¼šè°ƒç”¨DemoClassBçš„æ‹·è´æ„é€ å‡½æ•°ç”Ÿæˆè¿™ä¸ªä¸´æ—¶å¯¹è±¡
+    DemoClassB b(num, name);
+    return b;
 }
 
 void main()
 {
-	std::vector<DemoClassA> VecDemoClassA;
-	std::vector<DemoClassB> VecDemoClassB;
+    std::vector<DemoClassA> VecDemoClassA;
+    std::vector<DemoClassB> VecDemoClassB;
 
-	VecDemoClassA.reserve(10);
-	VecDemoClassB.reserve(10);
+    VecDemoClassA.reserve(10);
+    VecDemoClassB.reserve(10);
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬µ÷ÓÃMakeDemoClassAInstance1º¯Êıºó£¬Ö»·¢ÉúÁËµ÷ÓÃDemoClassA
-	// ¹¹Ôìº¯ÊıÕâÒ»´Îº¯Êıµ÷ÓÃ¡£ËùÒÔÄÄÅÂÃ»ÓĞ¿ªÈÎºÎµÄÓÅ»¯¿ª¹Ø£¬Õâ¸öMakeDemoClassAInstance1
-	// º¯ÊıÖ±½ÓÓÅ»¯µôÁË
-	std::printf("MakeDemoClassAInstance1 begins ---->>>>\n");
-	auto dca1 = MakeDemoClassAInstance1(0, "John");
-	std::printf("MakeDemoClassAInstance1 ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œè°ƒç”¨MakeDemoClassAInstance1å‡½æ•°åï¼Œåªå‘ç”Ÿäº†è°ƒç”¨DemoClassA
+    // æ„é€ å‡½æ•°è¿™ä¸€æ¬¡å‡½æ•°è°ƒç”¨ã€‚æ‰€ä»¥å“ªæ€•æ²¡æœ‰å¼€ä»»ä½•çš„ä¼˜åŒ–å¼€å…³ï¼Œè¿™ä¸ªMakeDemoClassAInstance1
+    // å‡½æ•°ç›´æ¥ä¼˜åŒ–æ‰äº†
+    std::printf("MakeDemoClassAInstance1 begins ---->>>>\n");
+    auto dca1 = MakeDemoClassAInstance1(0, "John");
+    std::printf("MakeDemoClassAInstance1 ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬µ÷ÓÃMakeDemoClassAInstance2º¯Êıºó£¬µ÷ÓÃDemoClassA
-	// ¹¹Ôìº¯Êı1´Î£¬ÒÆ¶¯¹¹Ôìº¯Êı1´Î£¬Îö¹¹º¯ÊıÒ»´Î£¬Ò²¾ÍÊÇËµ£¬Èç¹ûÀàÃ÷È·¶¨ÁËËüµÄÒÆ¶¯¹¹Ôìº¯Êı
-	// Ôò·¢ÉúÁÙÊ±¶ÔÏóµÄÉú³ÉµÄ´«µİÊ±£¬ÓÅÏÈµ÷ÓÃÒÆ¶¯¹¹Ôìº¯Êı
-	std::printf("MakeDemoClassAInstance2 begins ---->>>>\n");
-	auto dca2 = MakeDemoClassAInstance2(1, "Bob");
-	std::printf("MakeDemoClassAInstance2 ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œè°ƒç”¨MakeDemoClassAInstance2å‡½æ•°åï¼Œè°ƒç”¨DemoClassA
+    // æ„é€ å‡½æ•°1æ¬¡ï¼Œç§»åŠ¨æ„é€ å‡½æ•°1æ¬¡ï¼Œææ„å‡½æ•°ä¸€æ¬¡ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œå¦‚æœç±»æ˜ç¡®å®šäº†å®ƒçš„ç§»åŠ¨æ„é€ å‡½æ•°
+    // åˆ™å‘ç”Ÿä¸´æ—¶å¯¹è±¡çš„ç”Ÿæˆçš„ä¼ é€’æ—¶ï¼Œä¼˜å…ˆè°ƒç”¨ç§»åŠ¨æ„é€ å‡½æ•°
+    std::printf("MakeDemoClassAInstance2 begins ---->>>>\n");
+    auto dca2 = MakeDemoClassAInstance2(1, "Bob");
+    std::printf("MakeDemoClassAInstance2 ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬µ÷ÓÃMakeDemoClassBInstance1º¯Êıºó£¬Ö»·¢ÉúÁËµ÷ÓÃDemoClassB
-	// ¹¹Ôìº¯ÊıÕâÒ»´Îº¯Êıµ÷ÓÃ¡£ËùÒÔÄÄÅÂÃ»ÓĞ¿ªÈÎºÎµÄÓÅ»¯¿ª¹Ø£¬Õâ¸öMakeDemoClassBInstance1
-	// º¯ÊıÖ±½ÓÓÅ»¯µôÁË
-	std::printf("MakeDemoClassBInstance1 begins ---->>>>\n");
-	auto dcb1 = MakeDemoClassBInstance1(0, "Lucy");
-	std::printf("MakeDemoClassBInstance1 ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œè°ƒç”¨MakeDemoClassBInstance1å‡½æ•°åï¼Œåªå‘ç”Ÿäº†è°ƒç”¨DemoClassB
+    // æ„é€ å‡½æ•°è¿™ä¸€æ¬¡å‡½æ•°è°ƒç”¨ã€‚æ‰€ä»¥å“ªæ€•æ²¡æœ‰å¼€ä»»ä½•çš„ä¼˜åŒ–å¼€å…³ï¼Œè¿™ä¸ªMakeDemoClassBInstance1
+    // å‡½æ•°ç›´æ¥ä¼˜åŒ–æ‰äº†
+    std::printf("MakeDemoClassBInstance1 begins ---->>>>\n");
+    auto dcb1 = MakeDemoClassBInstance1(0, "Lucy");
+    std::printf("MakeDemoClassBInstance1 ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬µ÷ÓÃMakeDemoClassBInstance2º¯Êıºó£¬µ÷ÓÃDemoClassB
-	// ¹¹Ôìº¯Êı1´Î£¬¿½±´¹¹Ôìº¯Êı1´Î£¬Îö¹¹º¯ÊıÒ»´Î£¬Ò²¾ÍÊÇËµ£¬Èç¹ûÀàÃ»ÓĞÃ÷È·¶¨ÁËËüµÄÒÆ¶¯¹¹Ôì
-	// º¯Êı£¬Ôò·¢ÉúÁÙÊ±¶ÔÏóµÄÉú³ÉµÄ´«µİÊ±£¬Ê¹ÓÃ¿½±´¹¹Ôìº¯Êı
-	std::printf("MakeDemoClassBInstance2 begins ---->>>>\n");
-	auto dcb2 = MakeDemoClassBInstance2(1, "Lily");
-	std::printf("MakeDemoClassBInstance2 ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œè°ƒç”¨MakeDemoClassBInstance2å‡½æ•°åï¼Œè°ƒç”¨DemoClassB
+    // æ„é€ å‡½æ•°1æ¬¡ï¼Œæ‹·è´æ„é€ å‡½æ•°1æ¬¡ï¼Œææ„å‡½æ•°ä¸€æ¬¡ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œå¦‚æœç±»æ²¡æœ‰æ˜ç¡®å®šäº†å®ƒçš„ç§»åŠ¨æ„é€ 
+    // å‡½æ•°ï¼Œåˆ™å‘ç”Ÿä¸´æ—¶å¯¹è±¡çš„ç”Ÿæˆçš„ä¼ é€’æ—¶ï¼Œä½¿ç”¨æ‹·è´æ„é€ å‡½æ•°
+    std::printf("MakeDemoClassBInstance2 begins ---->>>>\n");
+    auto dcb2 = MakeDemoClassBInstance2(1, "Lily");
+    std::printf("MakeDemoClassBInstance2 ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬std::vectorµÄpush_back·½·¨»á¿½±´Ò»¸ö¸±±¾µ½vectorÀïÃæ£¬ÒòÎª
-	// ÇÒ¡°DemoClassA(4, "Ken")¡±ÕâÑùµÄÓï¾äÉú³ÉÁËÒ»¸öÓÒÖµ¶ÔÏó£¬ÇÒDemoClassAÓĞÒÆ¶¯¹¹Ôìº¯
-	// Êı£¬ËùÒÔÊÇÊ¹ÓÃÁËÒÆ¶¯¹¹Ôìº¯Êı£¬¹¹ÔìÁËÒ»¸ö¶ÔÏó¸±±¾·Å½øvectorÀï
-	std::printf("std::vector<DemoClassA>::push_back begins ---->>>>\n");
-	VecDemoClassA.push_back(DemoClassA(4, "Ken"));
-	std::printf("std::vector<DemoClassA>::push_back ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œstd::vectorçš„push_backæ–¹æ³•ä¼šæ‹·è´ä¸€ä¸ªå‰¯æœ¬åˆ°vectoré‡Œé¢ï¼Œå› ä¸º
+    // ä¸”â€œDemoClassA(4, "Ken")â€è¿™æ ·çš„è¯­å¥ç”Ÿæˆäº†ä¸€ä¸ªå³å€¼å¯¹è±¡ï¼Œä¸”DemoClassAæœ‰ç§»åŠ¨æ„é€ å‡½
+    // æ•°ï¼Œæ‰€ä»¥æ˜¯ä½¿ç”¨äº†ç§»åŠ¨æ„é€ å‡½æ•°ï¼Œæ„é€ äº†ä¸€ä¸ªå¯¹è±¡å‰¯æœ¬æ”¾è¿›vectoré‡Œ
+    std::printf("std::vector<DemoClassA>::push_back begins ---->>>>\n");
+    VecDemoClassA.push_back(DemoClassA(4, "Ken"));
+    std::printf("std::vector<DemoClassA>::push_back ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬Èç¹ûÏÈ¹¹ÔìÒ»¸öDemoClassAµÄÊµÀı¶ÔÏódcb11£¬È»ºóÔÙµ÷ÓÃstd::vectorµÄ
-	// push_back·½·¨Ê±£¬Èç¹û²»Ê¹ÓÃstd::move·½·¨½«dcb11×ªÎªÓÒÖµµÄ»°£¬µ÷ÓÃ¿½±´¹¹Ôìº¯Êı¹¹ÔìÒ»¸ö
-	// ¸±±¾£¬ÈçÊ¹ÓÃstd::move·½·¨½«dcb11×ªÎªÓÒÖµ£¬Ôòµ÷ÓÃÒÆ¶¯¹¹Ôìº¯Êı¹¹Ôì¸±±¾·Å½øvector
-	// Ò»°ãµØ£¬±»std::move´¦Àí¹ıµÄ¶ÔÏó£¬Ëü³ÖÓĞµÄ±äÁ¿±»ÍµÁË£¬ËùÒÔÒ»°ã²»ÒªËæ±ãÔÙ¼ÌĞøÊ¹ÓÃËü
-	std::printf("std::vector<DemoClassA>::push_back with move begins ---->>>>\n");
-	auto dcb11 = DemoClassA(74, "Obama");
-	VecDemoClassA.push_back(dcb11);
-	VecDemoClassA.push_back(std::move(dcb11));
-	dcb11.PrintInfo(); // dcb11µÄname_Ö¸ÏòµÄ×ÊÔ´ÒÑ¾­±»Íµ×ßÁË£¬name_ÒÑ¾­±»ÖÃÎªnullptr
-	std::printf("std::vector<DemoClassA>::push_back with move ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œå¦‚æœå…ˆæ„é€ ä¸€ä¸ªDemoClassAçš„å®ä¾‹å¯¹è±¡dcb11ï¼Œç„¶åå†è°ƒç”¨std::vectorçš„
+    // push_backæ–¹æ³•æ—¶ï¼Œå¦‚æœä¸ä½¿ç”¨std::moveæ–¹æ³•å°†dcb11è½¬ä¸ºå³å€¼çš„è¯ï¼Œè°ƒç”¨æ‹·è´æ„é€ å‡½æ•°æ„é€ ä¸€ä¸ª
+    // å‰¯æœ¬ï¼Œå¦‚ä½¿ç”¨std::moveæ–¹æ³•å°†dcb11è½¬ä¸ºå³å€¼ï¼Œåˆ™è°ƒç”¨ç§»åŠ¨æ„é€ å‡½æ•°æ„é€ å‰¯æœ¬æ”¾è¿›vector
+    // ä¸€èˆ¬åœ°ï¼Œè¢«std::moveå¤„ç†è¿‡çš„å¯¹è±¡ï¼Œå®ƒæŒæœ‰çš„å˜é‡è¢«å·äº†ï¼Œæ‰€ä»¥ä¸€èˆ¬ä¸è¦éšä¾¿å†ç»§ç»­ä½¿ç”¨å®ƒ
+    std::printf("std::vector<DemoClassA>::push_back with move begins ---->>>>\n");
+    auto dcb11 = DemoClassA(74, "Obama");
+    VecDemoClassA.push_back(dcb11);
+    VecDemoClassA.push_back(std::move(dcb11));
+    dcb11.PrintInfo(); // dcb11çš„name_æŒ‡å‘çš„èµ„æºå·²ç»è¢«å·èµ°äº†ï¼Œname_å·²ç»è¢«ç½®ä¸ºnullptr
+    std::printf("std::vector<DemoClassA>::push_back with move ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬std::vectorµÄpush_back·½·¨»á¿½±´Ò»¸ö¸±±¾µ½vectorÀïÃæ£¬ÒòÎª
-	// DemoClassAÖ»ÓĞ¿½±´¹¹Ôìº¯Êı£¬ËùÒÔÊÇÊ¹ÓÃÁË¿½±´¹¹Ôìº¯Êı¹¹ÔìÁËÒ»¸ö¶ÔÏó¸±±¾·Å½øvectorÀï
-	std::printf("std::vector<DemoClassB>::push_back begins ---->>>>\n");
-	VecDemoClassB.push_back(DemoClassB(5, "David"));
-	std::printf("std::vector<DemoClassB>::push_back ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œstd::vectorçš„push_backæ–¹æ³•ä¼šæ‹·è´ä¸€ä¸ªå‰¯æœ¬åˆ°vectoré‡Œé¢ï¼Œå› ä¸º
+    // DemoClassAåªæœ‰æ‹·è´æ„é€ å‡½æ•°ï¼Œæ‰€ä»¥æ˜¯ä½¿ç”¨äº†æ‹·è´æ„é€ å‡½æ•°æ„é€ äº†ä¸€ä¸ªå¯¹è±¡å‰¯æœ¬æ”¾è¿›vectoré‡Œ
+    std::printf("std::vector<DemoClassB>::push_back begins ---->>>>\n");
+    VecDemoClassB.push_back(DemoClassB(5, "David"));
+    std::printf("std::vector<DemoClassB>::push_back ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬emplace_back»áÖ±½ÓÉú³É¸øÒ»¸öÁÙÊ±¶ÔÏópushµ½vectorÀï
-	std::printf("std::vector<DemoClassA>::emplace_back begins ---->>>>\n");
-	VecDemoClassA.emplace_back(14, "Kate");
-	std::printf("std::vector<DemoClassA>::emplace_back ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œemplace_backä¼šç›´æ¥ç”Ÿæˆç»™ä¸€ä¸ªä¸´æ—¶å¯¹è±¡pushåˆ°vectoré‡Œ
+    std::printf("std::vector<DemoClassA>::emplace_back begins ---->>>>\n");
+    VecDemoClassA.emplace_back(14, "Kate");
+    std::printf("std::vector<DemoClassA>::emplace_back ends ------<<<<\n\n");
 
-	// ´ÓÖ´ĞĞ½á¹û¿ÉÒÔ¿´³ö£¬emplace_back»áÖ±½ÓÉú³É¸øÒ»¸öÁÙÊ±¶ÔÏópushµ½vectorÀï
-	std::printf("std::vector<DemoClassB>::emplace_back begins ---->>>>\n");
-	VecDemoClassB.emplace_back(24, "Fancy");
-	std::printf("std::vector<DemoClassB>::emplace_back ends ------<<<<\n\n");
+    // ä»æ‰§è¡Œç»“æœå¯ä»¥çœ‹å‡ºï¼Œemplace_backä¼šç›´æ¥ç”Ÿæˆç»™ä¸€ä¸ªä¸´æ—¶å¯¹è±¡pushåˆ°vectoré‡Œ
+    std::printf("std::vector<DemoClassB>::emplace_back begins ---->>>>\n");
+    VecDemoClassB.emplace_back(24, "Fancy");
+    std::printf("std::vector<DemoClassB>::emplace_back ends ------<<<<\n\n");
 
-	system("PAUSE");
+    system("PAUSE");
 }
