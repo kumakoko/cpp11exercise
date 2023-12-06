@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestRightValue", "Cpp11Exer
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestCppExecutions", "Cpp11Exercise\TestCppExecutions.vcxproj", "{72B7E82C-62CE-479F-AFDD-C0ADE46184ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestMultiThread", "Cpp11Exercise\TestMultiThread.vcxproj", "{245377B0-BCA1-44EB-974C-D8A353843B9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{72B7E82C-62CE-479F-AFDD-C0ADE46184ED}.Release|x64.Build.0 = Release|x64
 		{72B7E82C-62CE-479F-AFDD-C0ADE46184ED}.Release|x86.ActiveCfg = Release|Win32
 		{72B7E82C-62CE-479F-AFDD-C0ADE46184ED}.Release|x86.Build.0 = Release|Win32
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Debug|x64.ActiveCfg = Debug|x64
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Debug|x64.Build.0 = Debug|x64
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Debug|x86.ActiveCfg = Debug|Win32
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Debug|x86.Build.0 = Debug|Win32
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Release|x64.ActiveCfg = Release|x64
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Release|x64.Build.0 = Release|x64
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Release|x86.ActiveCfg = Release|Win32
+		{245377B0-BCA1-44EB-974C-D8A353843B9B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

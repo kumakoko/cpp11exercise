@@ -19,10 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test_cpp_executions.cc" />
+    <ClCompile Include="test_multi_threads.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="thread_guard.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{72B7E82C-62CE-479F-AFDD-C0ADE46184ED}</ProjectGuid>
+    <ProjectGuid>{245377B0-BCA1-44EB-974C-D8A353843B9B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Cpp11Exercise</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
