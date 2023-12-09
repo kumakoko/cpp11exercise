@@ -37,45 +37,49 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 
 // 利用对表达式(*(T1*)0) + (*(T2*)0)的推导，得出函数的返回值类型
 template<typename T1, typename T2>
-decltype((*(T1*)0) + (*(T2*)0)) add(T1 param1, T2 param2) {
-	return param1 + param2;
+decltype((*(T1*)0) + (*(T2*)0)) add(T1 param1, T2 param2)
+{
+    return param1 + param2;
 }
 
 // C++ 11新语法支持，函数签名前使用auto关键字，函数签名后用 ->decltype(具体表达式)的方式求得类型
 template<typename T1, typename T2>
-auto multiply(T1 param1, T2 param2) -> decltype(param1*param2) {
-	return param1 * param2;
+auto multiply(T1 param1, T2 param2) -> decltype(param1* param2) 
+{
+    return param1 * param2;
 }
 
 template<typename T1, typename T2>
-auto subtract(T1 param1, T2 param2)->decltype(param1 - param2) {
-	return param1 - param2;
+auto subtract(T1 param1, T2 param2)->decltype(param1 - param2) 
+{
+    return param1 - param2;
 }
 
-void TestTypeDerivation() {
-	float t1 = 5.6f;
-	float t2 = 7.8f;
-	std::complex<double> c1(1.2, 3.4);
-	std::complex<double> c2(3.14, 2.72);
-	auto r1 = multiply(t1, t2);
-	auto r2 = add(t1, t2);
-	auto r3 = subtract(c1, c2);
+void TestTypeDerivation() 
+{
+    float t1 = 5.6f;
+    float t2 = 7.8f;
+    std::complex<double> c1(1.2, 3.4);
+    std::complex<double> c2(3.14, 2.72);
+    auto r1 = multiply(t1, t2);
+    auto r2 = add(t1, t2);
+    auto r3 = subtract(c1, c2);
 
-	std::stringstream ss;
-	ss << "Test type derivation: " << std::endl;
-	ss << "The return type of multiply function is " << typeid(r1).name() << std::endl;
-	ss << "multiply(" << t1 << "," << t2 << ") = " << r1 << std::endl << std::endl;
-	std::cout << ss.str();
+    std::stringstream ss;
+    ss << "Test type derivation: " << std::endl;
+    ss << "The return type of multiply function is " << typeid(r1).name() << std::endl;
+    ss << "multiply(" << t1 << "," << t2 << ") = " << r1 << std::endl << std::endl;
+    std::cout << ss.str();
 
-	ss.str(""); 
-	ss << "The return type of add function is " << typeid(r2).name() << std::endl;
-	ss << "add(" << t1 << "," << t2 << ") = " << r2 << std::endl << std::endl;
-	std::cout << ss.str();
+    ss.str("");
+    ss << "The return type of add function is " << typeid(r2).name() << std::endl;
+    ss << "add(" << t1 << "," << t2 << ") = " << r2 << std::endl << std::endl;
+    std::cout << ss.str();
 
-	ss.str("");
-	ss << "The return type of subtract function is " << typeid(r3).name() << std::endl;
-	ss << "subtract(" << c1 << "," << c2 << ") = " << r3 << std::endl << std::endl;
-	std::cout << ss.str();
+    ss.str("");
+    ss << "The return type of subtract function is " << typeid(r3).name() << std::endl;
+    ss << "subtract(" << c1 << "," << c2 << ") = " << r3 << std::endl << std::endl;
+    std::cout << ss.str();
 }
 
 #endif // type_derivation_h__

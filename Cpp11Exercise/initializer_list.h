@@ -35,7 +35,8 @@ ARISING FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALI
 #include <list>
 #include <initializer_list>
 
-class FooA {
+class FooA
+{
 private:
 	int i;
 	double j;
@@ -48,13 +49,15 @@ public:
 	}
 };
 
-class FooB {
+class FooB 
+{
 private:
 	FooA fa;
 	std::string s;
 public:
 	FooB(const FooA& _fa, const std::string& _s) :fa(_fa), s(_s) {}
-	void Print() {
+	void Print() 
+    {
 		fa.Print();
 		std::cout << "s = " << s << std::endl;
 	}
@@ -64,18 +67,23 @@ private:
 
 // 自定义容器可以使用std::initializer_list容器来初始化容器的元素
 template<typename T>
-class MyList {
+class MyList 
+{
 private:
 	std::list<T> v;
 public:
-	MyList(std::initializer_list<T> init_list) {
-		for (auto it = init_list.begin(); it != init_list.end(); ++it) {
+	MyList(std::initializer_list<T> init_list)
+    {
+		for (auto it = init_list.begin(); it != init_list.end(); ++it) 
+        {
 			v.emplace_back(*it);
 		}
 	}
 
-	void Print() {
-		for (auto it = v.begin(); it != v.end(); ++it) {
+	void Print()
+    {
+		for (auto it = v.begin(); it != v.end(); ++it)
+        {
 			std::cout << *it << " ";
 		}
 
@@ -83,7 +91,8 @@ public:
 	}
 };
 
-void TestInitializerList() {
+void TestInitializerList()
+{
 	std::cout << "TestInitializerList function \n";
 	FooA fa = { 1,2.3,4.5f }; // 使用初始化列表，各参数的顺序和构造函数的参数声明顺序相同
 	FooB fb = { fa,"I am FooB" };

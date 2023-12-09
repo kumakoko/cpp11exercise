@@ -38,7 +38,8 @@ void TestForRange()
 {
 	std::list<double> ls = { 1.23,4.56,7.89,234532.54,8965.1223 };
 	std::cout << "使用传统的begin-end方式遍历list\n";
-	for (auto iter = ls.begin(); iter != ls.end(); ++iter) {
+	for (auto iter = ls.begin(); iter != ls.end(); ++iter)
+    {
 		std::cout << *iter << " ";
 	}
 
